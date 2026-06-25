@@ -1,0 +1,6 @@
+{
+  "name": "Nirvana Homestay",
+  "description": "A luxury boutique mountain stay experience in Chamba, Himachal Pradesh, designed for ultimate mountain serenity and premium nature retreats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
