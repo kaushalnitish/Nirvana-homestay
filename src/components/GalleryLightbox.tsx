@@ -116,6 +116,7 @@ export default function GalleryLightbox({ initialItems }: GalleryLightboxProps) 
                   <img
                     src={item.url}
                     alt={item.caption}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                   />
@@ -212,6 +213,7 @@ export default function GalleryLightbox({ initialItems }: GalleryLightboxProps) 
                   <img
                     src={filteredItems[lightboxIndex].url}
                     alt={filteredItems[lightboxIndex].caption}
+                    referrerPolicy="no-referrer"
                     className="max-w-full max-h-[60vh] object-contain"
                   />
                 </picture>

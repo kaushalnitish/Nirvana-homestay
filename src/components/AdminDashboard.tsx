@@ -286,6 +286,7 @@ export default function AdminDashboard() {
                       <img
                         src={room.image}
                         alt={room.name}
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
@@ -424,6 +425,7 @@ export default function AdminDashboard() {
                       <img
                         src={item.url}
                         alt={item.caption}
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />

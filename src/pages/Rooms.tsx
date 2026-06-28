@@ -101,6 +101,7 @@ export default function Rooms() {
                           <img
                             src={room.image}
                             alt={room.name}
+                            referrerPolicy="no-referrer"
                             className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 ease-out"
                             loading="lazy"
                           />

@@ -92,6 +92,7 @@ export default function Experience() {
                     <img
                       src={exp.image}
                       alt={exp.title}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -166,6 +167,7 @@ export default function Experience() {
                   <img
                     src="/images/bonfire_evening_1782394660663.jpg"
                     alt="Organic authentic dining setting"
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -232,6 +234,7 @@ export default function Experience() {
                   <img
                     src="/images/cedar_suite_interior_1782394643530.jpg"
                     alt="Cultural integration design"
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
