@@ -72,9 +72,8 @@ export default function Home() {
                   </div>
                   
                   <h1 className="font-editorial text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.95] text-brand-text">
-                    Where the <br />
-                    Mountains <br />
-                    Whisper.
+                    NIRVANA <br />
+                    <span className="text-3xl sm:text-4xl md:text-[44px] md:leading-[46px] font-sans tracking-wide block font-normal mt-4 text-brand-beige">by kunwar mahajan</span>
                   </h1>
                 </div>
               </ScrollReveal>

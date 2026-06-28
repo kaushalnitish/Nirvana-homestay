@@ -2,20 +2,29 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Room, Enquiry } from "../types";
 import { Calendar, Users, MessageSquare, Mail, Phone, ArrowRight, CheckCircle2, Loader2, Sparkles } from "lucide-react";
+import DatePickerCalendar from "./DatePickerCalendar";
 
 interface EnquiryFormProps {
   rooms: Room[];
   selectedRoomId?: string;
+  initialCheckIn?: string;
+  initialCheckOut?: string;
   onSuccess?: (enquiry: Enquiry) => void;
 }
 
-export default function EnquiryForm({ rooms, selectedRoomId = "", onSuccess }: EnquiryFormProps) {
+export default function EnquiryForm({ 
+  rooms, 
+  selectedRoomId = "", 
+  initialCheckIn = "", 
+  initialCheckOut = "", 
+  onSuccess 
+}: EnquiryFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    checkIn: "",
-    checkOut: "",
+    checkIn: initialCheckIn,
+    checkOut: initialCheckOut,
     guests: 1,
     roomId: selectedRoomId || (rooms.length > 0 ? rooms[0].id : ""),
     message: "",
@@ -31,10 +40,13 @@ export default function EnquiryForm({ rooms, selectedRoomId = "", onSuccess }: E
   } | null>(null);
 
   useEffect(() => {
-    if (selectedRoomId) {
-      setFormData((prev) => ({ ...prev, roomId: selectedRoomId }));
-    }
-  }, [selectedRoomId]);
+    setFormData((prev) => ({
+      ...prev,
+      roomId: selectedRoomId || prev.roomId,
+      checkIn: initialCheckIn || prev.checkIn,
+      checkOut: initialCheckOut || prev.checkOut
+    }));
+  }, [selectedRoomId, initialCheckIn, initialCheckOut]);
 
   const selectedRoom = rooms.find((r) => r.id === formData.roomId);
 
@@ -123,36 +135,16 @@ export default function EnquiryForm({ rooms, selectedRoomId = "", onSuccess }: E
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Check in */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-semibold uppercase tracking-wider text-brand-text">Check-In</label>
-                <div className="relative">
-                  <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-text-sec" />
-                  <input
-                    type="date"
-                    min={getTomorrowDate()}
-                    value={formData.checkIn}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, checkIn: e.target.value }))}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-brand-border bg-brand-bg/30 text-sm focus:border-brand-green outline-none"
-                  />
-                </div>
+            <div className="space-y-1.5">
+              <label className="text-xs font-semibold uppercase tracking-wider text-brand-text">Preferred Stay Dates</label>
+              <DatePickerCalendar
+                startDate={formData.checkIn}
+                endDate={formData.checkOut}
+                onChange={(start, end) => setFormData((prev) => ({ ...prev, checkIn: start, checkOut: end }))}
+                minDate={getTomorrowDate()}
+              />
+              <div className="flex flex-col gap-1 mt-1">
                 {errors.checkIn && <p className="text-[10px] text-red-500 font-medium">{errors.checkIn}</p>}
-              </div>
-
-              {/* Check out */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-semibold uppercase tracking-wider text-brand-text">Check-Out</label>
-                <div className="relative">
-                  <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-text-sec" />
-                  <input
-                    type="date"
-                    min={formData.checkIn || getDayAfterTomorrowDate()}
-                    value={formData.checkOut}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, checkOut: e.target.value }))}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-brand-border bg-brand-bg/30 text-sm focus:border-brand-green outline-none"
-                  />
-                </div>
                 {errors.checkOut && <p className="text-[10px] text-red-500 font-medium">{errors.checkOut}</p>}
               </div>
             </div>

@@ -14,6 +14,8 @@ export default function Contact() {
 
   // Handle passed room selection state (from "Book Now" on /rooms)
   const selectedRoomId = (location.state as any)?.roomId || "";
+  const initialCheckIn = (location.state as any)?.checkIn || "";
+  const initialCheckOut = (location.state as any)?.checkOut || "";
 
   const contactInfos = [
     {
@@ -154,6 +156,8 @@ export default function Contact() {
               <EnquiryForm 
                 rooms={rooms} 
                 selectedRoomId={selectedRoomId} 
+                initialCheckIn={initialCheckIn}
+                initialCheckOut={initialCheckOut}
                 onSuccess={(enq) => {
                   console.log("Recorded enq on Contact page:", enq);
                 }}

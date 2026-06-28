@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { useRooms } from "../context/RoomsContext";
 import ScrollReveal from "../components/ScrollReveal";
+import DatePickerCalendar from "../components/DatePickerCalendar";
 import { 
   Star, ChevronDown, Check, Trees, Award, ArrowRight 
 } from "lucide-react";
@@ -12,8 +13,12 @@ export default function Rooms() {
   const navigate = useNavigate();
   const [expandedRoomId, setExpandedRoomId] = useState<string | null>(null);
 
+  // Preferred Stay Dates State
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+
   const handleBookNow = (roomId: string) => {
-    navigate("/contact", { state: { roomId } });
+    navigate("/contact", { state: { roomId, checkIn, checkOut } });
   };
 
   return (
@@ -41,6 +46,29 @@ export default function Rooms() {
           <p className="text-sm sm:text-base text-brand-text-sec font-light max-w-xl mx-auto leading-relaxed">
             Every room at Nirvana is built with native Himalayan cedar framing, private view decks, organic rituals, and customized workspaces for pure serenity.
           </p>
+        </div>
+      </section>
+
+      {/* Elegant Floating Stay Dates Selector */}
+      <section className="max-w-3xl mx-auto px-6 -mt-10 relative z-20">
+        <div className="bg-white border border-brand-border rounded-3xl p-6 shadow-xl flex flex-col sm:flex-row items-center gap-6 justify-between">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="font-editorial text-2xl tracking-wide text-brand-text">Check Availability</h3>
+            <p className="text-[10px] text-brand-text-sec font-light max-w-xs">
+              Select your preferred stay dates below. We'll automatically carry them over to complete your inquiry.
+            </p>
+          </div>
+          <div className="w-full sm:w-80 shrink-0">
+            <DatePickerCalendar
+              startDate={checkIn}
+              endDate={checkOut}
+              onChange={(start, end) => {
+                setCheckIn(start);
+                setCheckOut(end);
+              }}
+              minDate={new Date().toISOString().split("T")[0]}
+            />
+          </div>
         </div>
       </section>
 

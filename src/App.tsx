@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { 
-  MapPin, Phone, Mail, Instagram, Lock, Menu, X, ShieldCheck, HelpCircle, Trees 
+  MapPin, Phone, Mail, Instagram, Lock, Menu, X, ShieldCheck, HelpCircle, Trees, Sun, Moon 
 } from "lucide-react";
 
 // Context & Pages
 import { RoomsProvider, useRooms } from "./context/RoomsContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import Gallery from "./pages/Gallery";
@@ -36,7 +37,10 @@ function AppContent() {
   const [adminError, setAdminError] = useState("");
   const [showPasscodeField, setShowPasscodeField] = useState(false);
 
-  const { pathname } = useLocation();
+  const { theme, toggleTheme } = useTheme();
+
+  const location = useLocation();
+  const { pathname } = location;
   const navigate = useNavigate();
 
   const handleAdminAccess = (e: React.FormEvent) => {
@@ -105,6 +109,18 @@ function AppContent() {
 
               {/* Book Now Button Desktop */}
               <div className="hidden md:flex items-center gap-4">
+                <button
+                  onClick={toggleTheme}
+                  className="p-2.5 rounded-full hover:bg-brand-border/40 text-brand-text transition-all duration-300 cursor-pointer flex items-center justify-center border border-brand-border/40"
+                  title={theme === "light" ? "Switch to Midnight Forest Theme" : "Switch to Light Theme"}
+                  aria-label="Toggle Theme"
+                >
+                  {theme === "light" ? (
+                    <Moon className="h-4.5 w-4.5 text-brand-green" />
+                  ) : (
+                    <Sun className="h-4.5 w-4.5 text-brand-beige" />
+                  )}
+                </button>
                 <Link
                   to="/contact"
                   className="bg-brand-green text-white hover:bg-brand-green-hover text-xs uppercase tracking-widest font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer shadow-xs"
@@ -113,14 +129,30 @@ function AppContent() {
                 </Link>
               </div>
 
-              {/* Mobile Menu Toggle */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden h-10 w-10 flex items-center justify-center rounded-full hover:bg-brand-border transition-colors text-brand-text"
-                aria-label="Toggle Mobile Menu"
-              >
-                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
+              {/* Mobile Right Controls */}
+              <div className="md:hidden flex items-center gap-3">
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-full hover:bg-brand-border/40 text-brand-text transition-all duration-300 cursor-pointer flex items-center justify-center border border-brand-border/40"
+                  title={theme === "light" ? "Switch to Midnight Forest Theme" : "Switch to Light Theme"}
+                  aria-label="Toggle Theme"
+                >
+                  {theme === "light" ? (
+                    <Moon className="h-4 w-4 text-brand-green" />
+                  ) : (
+                    <Sun className="h-4 w-4 text-brand-beige" />
+                  )}
+                </button>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-brand-border transition-colors text-brand-text"
+                  aria-label="Toggle Mobile Menu"
+                >
+                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
+              </div>
             </div>
 
             {/* Mobile Drawer */}
@@ -163,17 +195,26 @@ function AppContent() {
           </header>
 
           {/* 3. Main Page Transition Container */}
-          <main className="flex-1 flex flex-col items-center w-full">
+          <main className="flex-1 flex flex-col items-center w-full overflow-hidden">
             <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/rooms" element={<Rooms />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/location" element={<Location />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<Home />} />
-              </Routes>
+              <motion.div
+                key={pathname}
+                initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -16, filter: "blur(6px)" }}
+                transition={{ duration: 0.45, ease: [0.21, 1.02, 0.43, 1.01] }}
+                className="w-full flex flex-col items-center"
+              >
+                <Routes location={location}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/rooms" element={<Rooms />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/experience" element={<Experience />} />
+                  <Route path="/location" element={<Location />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<Home />} />
+                </Routes>
+              </motion.div>
             </AnimatePresence>
           </main>
 
@@ -347,10 +388,12 @@ function AppContent() {
 
 export default function App() {
   return (
-    <RoomsProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </RoomsProvider>
+    <ThemeProvider>
+      <RoomsProvider>
+        <Router>
+          <AppContent />
+        </Router>
+      </RoomsProvider>
+    </ThemeProvider>
   );
 }

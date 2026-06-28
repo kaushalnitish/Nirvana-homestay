@@ -6,13 +6,35 @@
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   
-  --color-brand-bg: #F8F7F4;
-  --color-brand-text: #1B1B1B;
-  --color-brand-text-sec: #666666;
-  --color-brand-green: #3F6B52;
-  --color-brand-green-hover: #31533F;
-  --color-brand-beige: #D8C9B7;
-  --color-brand-border: #ECEAE5;
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-text: var(--brand-text);
+  --color-brand-text-sec: var(--brand-text-sec);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-hover: var(--brand-green-hover);
+  --color-brand-beige: var(--brand-beige);
+  --color-brand-border: var(--brand-border);
+}
+
+:root {
+  --brand-bg: #F8F7F4;
+  --brand-card: #FFFFFF;
+  --brand-text: #1B1B1B;
+  --brand-text-sec: #666666;
+  --brand-green: #3F6B52;
+  --brand-green-hover: #31533F;
+  --brand-beige: #D8C9B7;
+  --brand-border: #ECEAE5;
+}
+
+.dark {
+  --brand-bg: #0A110E;
+  --brand-card: #111D18;
+  --brand-text: #EBEFEA;
+  --brand-text-sec: #8EA397;
+  --brand-green: #51A779;
+  --brand-green-hover: #62C18C;
+  --brand-beige: #C5B6A3;
+  --brand-border: #1E3127;
 }
 
 html {
@@ -22,6 +44,71 @@ html {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Elegant Dynamic Theme Swapping Mappings */
+.dark body {
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+}
+
+.dark .bg-white {
+  background-color: var(--brand-card) !important;
+}
+
+.dark select option {
+  background-color: var(--brand-card);
+  color: var(--brand-text);
+}
+
+.dark .bg-white\/40,
+.dark .bg-white\/60,
+.dark .bg-white\/70,
+.dark .bg-white\/80,
+.dark .bg-white\/85,
+.dark .bg-white\/90,
+.dark .bg-white\/95 {
+  background-color: rgba(17, 29, 24, 0.8) !important;
+  backdrop-filter: blur(12px);
+}
+
+.dark .border-brand-border, 
+.dark .border-brand-border\/40, 
+.dark .border-brand-border\/60, 
+.dark .border-brand-border\/80 {
+  border-color: var(--brand-border) !important;
+}
+
+.dark .text-brand-text,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4 {
+  color: var(--brand-text);
+}
+
+.dark .text-brand-text-sec {
+  color: var(--brand-text-sec);
+}
+
+.dark input, 
+.dark textarea, 
+.dark select {
+  color: var(--brand-text) !important;
+}
+
+.dark input::placeholder, 
+.dark textarea::placeholder {
+  color: rgba(142, 163, 151, 0.5) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--brand-border);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-beige);
 }
 
 /* Base Utility Overrides */
