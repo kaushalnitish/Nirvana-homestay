@@ -269,12 +269,16 @@ export default function AdminDashboard() {
               {rooms.map((room) => (
                 <div key={room.id} className="border border-brand-border rounded-2xl overflow-hidden bg-brand-bg/10 flex flex-col">
                   <div className="relative h-40 overflow-hidden bg-gray-200">
-                    <img
-                      src={room.image}
-                      alt={room.name}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
+                    <picture className="w-full h-full block">
+                      <source srcSet={room.image.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                      <img
+                        src={room.image}
+                        alt={room.name}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </picture>
                     <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-md px-2 py-1 rounded-full text-[10px] font-semibold text-brand-green">
                       {room.size}
                     </div>
@@ -404,12 +408,16 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {gallery.map((item) => (
                   <div key={item.id} className="relative group rounded-xl overflow-hidden border border-brand-border h-28 bg-gray-100">
-                    <img
-                      src={item.url}
-                      alt={item.caption}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
+                    <picture className="w-full h-full block">
+                      <source srcSet={item.url.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                      <img
+                        src={item.url}
+                        alt={item.caption}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </picture>
                     <div className="absolute inset-0 bg-brand-text/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5">
                       <button
                         onClick={() => handleDeletePhoto(item.id)}

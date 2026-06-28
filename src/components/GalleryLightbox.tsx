@@ -101,13 +101,16 @@ export default function GalleryLightbox({ initialItems }: GalleryLightboxProps) 
               className="break-inside-avoid relative group overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm hover:shadow-md cursor-pointer transition-all duration-300"
             >
               <div className="relative overflow-hidden aspect-[4/3] sm:aspect-auto">
-                <img
-                  src={item.url}
-                  alt={item.caption}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet={item.url.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                  <img
+                    src={item.url}
+                    alt={item.caption}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                </picture>
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-brand-text/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 scale-90 group-hover:scale-100 transition-transform duration-300">
@@ -195,12 +198,15 @@ export default function GalleryLightbox({ initialItems }: GalleryLightboxProps) 
                 transition={{ duration: 0.3 }}
                 className="bg-brand-bg rounded-2xl overflow-hidden shadow-2xl max-w-full max-h-[70vh] border border-white/10"
               >
-                <img
-                  src={filteredItems[lightboxIndex].url}
-                  alt={filteredItems[lightboxIndex].caption}
-                  referrerPolicy="no-referrer"
-                  className="max-w-full max-h-[60vh] object-contain"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet={filteredItems[lightboxIndex].url.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                  <img
+                    src={filteredItems[lightboxIndex].url}
+                    alt={filteredItems[lightboxIndex].caption}
+                    referrerPolicy="no-referrer"
+                    className="max-w-full max-h-[60vh] object-contain"
+                  />
+                </picture>
 
                 {/* Caption Bar */}
                 <div className="bg-white p-5 text-brand-text">

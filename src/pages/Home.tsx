@@ -33,14 +33,17 @@ export default function Home() {
       <section className="relative min-h-[calc(100vh-80px)] flex flex-col justify-end pb-24 overflow-hidden">
         {/* Parallax Image Container */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/homestay_exterior_1782394626548.webp"
-            alt="Nirvana Homestay exterior mountain landscape"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover scale-105 select-none"
-            fetchPriority="high"
-            loading="eager"
-          />
+          <picture className="w-full h-full block">
+            <source srcSet="/images/homestay_exterior_1782394626548.webp" type="image/webp" />
+            <img
+              src="/images/homestay_exterior_1782394626548.jpg"
+              alt="Nirvana Homestay exterior mountain landscape"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover scale-105 select-none"
+              fetchPriority="high"
+              loading="eager"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/40 to-brand-text/25" />
         </div>
 
@@ -129,13 +132,16 @@ export default function Home() {
         <div className="md:col-span-6">
           <ScrollReveal direction="left" delay={0.1}>
             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[3/4] border border-brand-border shadow-sm">
-              <img
-                src="/images/homestay_exterior_1782394626548.webp"
-                alt="Rustic modern deodar timber chalet design"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <picture className="w-full h-full block">
+                <source srcSet="/images/homestay_exterior_1782394626548.webp" type="image/webp" />
+                <img
+                  src="/images/homestay_exterior_1782394626548.jpg"
+                  alt="Rustic modern deodar timber chalet design"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </picture>
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-brand-border">
                 <span className="text-[9px] uppercase tracking-widest text-brand-green font-bold">The Material Story</span>
                 <h4 className="font-editorial text-xl tracking-wide text-brand-text mt-1">Native Cedarwood & Stone</h4>
@@ -215,12 +221,16 @@ export default function Home() {
                   <div className="border border-brand-border rounded-3xl overflow-hidden bg-white shadow-sm hover:shadow-md flex flex-col justify-between transition-all h-full">
                     <div>
                       <div className="relative h-64 overflow-hidden bg-gray-100">
-                        <img
-                          src={room.image}
-                          alt={room.name}
-                          referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
-                        />
+                        <picture className="w-full h-full block">
+                          <source srcSet={room.image.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                          <img
+                            src={room.image}
+                            alt={room.name}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                        </picture>
                         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-brand-border text-[9px] uppercase tracking-widest font-semibold text-brand-green">
                           {room.view}
                         </div>
@@ -279,13 +289,16 @@ export default function Home() {
             <ScrollReveal key={idx} direction="up" delay={idx * 0.12} duration={0.6}>
               <div className="flex flex-col space-y-4 group">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-brand-border relative bg-gray-100">
-                  <img
-                    src={exp.image}
-                    alt={exp.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 ease-out"
-                    loading="lazy"
-                  />
+                  <picture className="w-full h-full block">
+                    <source srcSet={exp.image.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                    <img
+                      src={exp.image}
+                      alt={exp.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </picture>
                   <span className="absolute top-3 left-3 bg-white/95 text-[9px] uppercase font-semibold text-brand-green px-2.5 py-1 rounded-full border border-brand-border shadow-sm">
                     {exp.highlight}
                   </span>

@@ -87,13 +87,16 @@ export default function Experience() {
             <ScrollReveal key={idx} direction="up" delay={idx * 0.1} duration={0.8}>
               <div className="bg-white border border-brand-border rounded-3xl overflow-hidden shadow-xs hover:shadow-sm grid grid-cols-1 sm:grid-cols-12 h-full">
                 <div className="sm:col-span-5 h-56 sm:h-auto overflow-hidden bg-gray-100">
-                  <img
-                    src={exp.image}
-                    alt={exp.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <picture className="w-full h-full block">
+                    <source srcSet={exp.image.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                    <img
+                      src={exp.image}
+                      alt={exp.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 <div className="sm:col-span-7 p-6 md:p-8 flex flex-col justify-center space-y-3">
                   <span className="text-[9px] uppercase tracking-widest font-bold text-brand-green bg-brand-green/5 px-2.5 py-1 rounded-full border border-brand-green/10 self-start">
@@ -159,13 +162,16 @@ export default function Experience() {
           <div className="lg:col-span-6">
             <ScrollReveal direction="right" delay={0.15}>
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-video lg:aspect-[4/3] border border-brand-border shadow-sm">
-                <img
-                  src="/images/bonfire_evening_1782394660663.webp"
-                  alt="Organic authentic dining setting"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet="/images/bonfire_evening_1782394660663.webp" type="image/webp" />
+                  <img
+                    src="/images/bonfire_evening_1782394660663.jpg"
+                    alt="Organic authentic dining setting"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </picture>
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-border text-[9px] uppercase tracking-widest font-semibold text-brand-green shadow-xs">
                   Organic Culinary Ritual
                 </div>
@@ -223,13 +229,16 @@ export default function Experience() {
           <div className="lg:col-span-5">
             <ScrollReveal direction="left" delay={0.1}>
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-brand-border shadow-xs bg-gray-100 hidden lg:block">
-                <img
-                  src="/images/cedar_suite_interior_1782394643530.webp"
-                  alt="Cultural integration design"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+                <picture className="w-full h-full block">
+                  <source srcSet="/images/cedar_suite_interior_1782394643530.webp" type="image/webp" />
+                  <img
+                    src="/images/cedar_suite_interior_1782394643530.jpg"
+                    alt="Cultural integration design"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
             </ScrollReveal>
           </div>

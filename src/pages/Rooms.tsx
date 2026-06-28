@@ -96,12 +96,16 @@ export default function Rooms() {
                     <div>
                       {/* Room Image */}
                       <div className="relative h-72 overflow-hidden bg-gray-100 group">
-                        <img
-                          src={room.image}
-                          alt={room.name}
-                          referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 ease-out"
-                        />
+                        <picture className="w-full h-full block">
+                          <source srcSet={room.image.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                          <img
+                            src={room.image}
+                            alt={room.name}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 ease-out"
+                            loading="lazy"
+                          />
+                        </picture>
                         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-border text-[9px] uppercase tracking-widest font-semibold text-brand-green shadow-xs">
                           {room.view}
                         </div>
