@@ -344,7 +344,7 @@ export default function AdminDashboard() {
                     <label className="text-[10px] uppercase font-semibold text-brand-text-sec">Photo URL</label>
                     <input
                       type="text"
-                      placeholder="e.g. /src/assets/images/..."
+                      placeholder="e.g. /images/..."
                       value={newPhoto.url}
                       onChange={(e) => setNewPhoto(prev => ({ ...prev, url: e.target.value }))}
                       className="w-full px-3 py-2 rounded-lg border border-brand-border bg-white text-xs outline-none focus:border-brand-green"

@@ -30,25 +30,25 @@ export const experiences = [
     title: "Wake Up to Mountain Mist",
     description: "Step onto private panoramic decks to watch the morning clouds rise through the deodar pine forests.",
     highlight: "Cedar wood architecture",
-    image: "/src/assets/images/cedar_suite_interior_1782394643530.jpg"
+    image: "/images/cedar_suite_interior_1782394643530.jpg"
   },
   {
     title: "Authentic Farm-to-Table Feast",
     description: "Savor fresh, hand-churned meals including organic mountain honey, freshly-baked bread, and traditional Himachali Dham.",
     highlight: "Native local recipes",
-    image: "/src/assets/images/bonfire_evening_1782394660663.jpg"
+    image: "/images/bonfire_evening_1782394660663.jpg"
   },
   {
     title: "Warm Starry Bonfires",
     description: "Gather around a stone-carved fire pit with acoustic guitar notes and premium locally crafted herbal spirits.",
     highlight: "Perfect under-stars gathering",
-    image: "/src/assets/images/bonfire_evening_1782394660663.jpg"
+    image: "/images/bonfire_evening_1782394660663.jpg"
   },
   {
     title: "Creative Mountain Workcation",
     description: "Deep, soundproof workstations equipped with high-speed fiber internet and custom-roasted espresso machines.",
     highlight: "Uninterrupted connectivity",
-    image: "/src/assets/images/homestay_exterior_1782394626548.jpg"
+    image: "/images/homestay_exterior_1782394626548.jpg"
   }
 ];
 
