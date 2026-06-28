@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { GalleryItem } from "../types";
+import { defaultGallery } from "../data";
 import { X, ChevronLeft, ChevronRight, Grid, Eye, Image as ImageIcon } from "lucide-react";
 
 interface GalleryLightboxProps {
@@ -15,13 +16,22 @@ export default function GalleryLightbox({ initialItems }: GalleryLightboxProps) 
   useEffect(() => {
     // Fetch items from our API
     fetch("/api/gallery")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`API returned status ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        setItems(data);
+        if (Array.isArray(data) && data.length > 0) {
+          setItems(data);
+        } else {
+          setItems(initialItems || defaultGallery);
+        }
       })
       .catch((err) => {
-        console.error("Failed to load gallery items:", err);
-        if (initialItems) setItems(initialItems);
+        console.warn("Failed to load gallery items via API, falling back to local data:", err);
+        setItems(initialItems || defaultGallery);
       });
   }, [initialItems]);
 

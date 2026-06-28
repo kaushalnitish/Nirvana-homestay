@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Room } from "../types";
+import { defaultRooms } from "../data";
 
 interface RoomsContextType {
   rooms: Room[];
@@ -15,13 +16,23 @@ export function RoomsProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     fetch("/api/rooms")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`API returned status ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        setRooms(data);
+        if (Array.isArray(data) && data.length > 0) {
+          setRooms(data);
+        } else {
+          setRooms(defaultRooms);
+        }
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Failed to load rooms in provider:", err);
+        console.warn("Failed to load rooms via API, falling back to static data:", err);
+        setRooms(defaultRooms);
         setLoading(false);
       });
   }, []);

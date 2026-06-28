@@ -115,3 +115,78 @@ export const faqs = [
     answer: "Chamba is beautiful year-round! March to June offers pleasant mountain breezes (15-25°C). July to September brings misty cloud formations across the valley, and November to February is ideal for crisp winters with snow on higher peaks."
   }
 ];
+
+export const defaultRooms = [
+  {
+    id: "cedar-suite",
+    name: "The Cedar Suite",
+    price: 8500,
+    capacity: 2,
+    size: "450 sq ft",
+    description: "A gorgeous wood-paneled corner room featuring panoramic forest views and a private cedar deck.",
+    longDescription: "Built entirely of aromatic Himalayan cedar (Deodar) and natural slate stone. Features a private floating cedar wood balcony overlooking the Chamera valley mist. Equipped with an artisanal wood stove for chilly evenings, premium King size bed with organic cotton sheets, a designer copper bathtub, and dedicated high-speed fiber-optic workspace with artisanal espresso maker.",
+    amenities: ["King Bed", "Private Deck", "Copper Tub", "Wood Fireplace", "High-speed Wi-Fi", "Espresso Maker", "Premium Linens", "Scenic Mountain View"],
+    view: "Panoramic Snow-capped Himalayan Range & Pine Forest",
+    image: "/images/cedar_suite_interior_1782394643530.jpg",
+    isAvailable: true,
+    rating: 4.9,
+    bedType: "1 Extra-Large King Bed",
+    images: ["/images/cedar_suite_interior_1782394643530.jpg", "/images/homestay_exterior_1782394626548.jpg"]
+  },
+  {
+    id: "mist-nest",
+    name: "The Mist Nest (Penthouse Loft)",
+    price: 12000,
+    capacity: 4,
+    size: "750 sq ft",
+    description: "Elegant duplex attic loft featuring a double-height floor-to-ceiling glass wall and premium star-gazing ceilings.",
+    longDescription: "Our most premium accommodation. Built high into the rafters of the chalet with dramatic sloping timber ceilings and double-height architectural glazing. Features an upper sleeping loft, a cozy lower lounge with an iron stove, a private wrap-around terrace, customized organic tea bar, and deep clay soaking tub. Perfect for families, couples seeking high-end isolation, or a premium long-term creative workcation.",
+    amenities: ["Upper Loft Bed", "Wrap-around Deck", "Double-height Glass Wall", "Tea Sommelier Bar", "Deep Clay Soak Tub", "Workspace", "Marshall Bluetooth Speaker", "Private Fireplace"],
+    view: "Sky-high Panoramic Views & Rising Morning Clouds",
+    image: "/images/homestay_exterior_1782394626548.jpg",
+    isAvailable: true,
+    rating: 5.0,
+    bedType: "2 Queen-size Floating Beds",
+    images: ["/images/homestay_exterior_1782394626548.jpg", "/images/cedar_suite_interior_1782394643530.jpg"]
+  },
+  {
+    id: "pine-room",
+    name: "The Pine Room",
+    price: 6500,
+    capacity: 2,
+    size: "350 sq ft",
+    description: "A cozy ground-floor sanctuary with direct French door access to the lush lawn and apple orchard gardens.",
+    longDescription: "Designed for a serene, earth-grounded connection. Opens directly onto the lush private gardens and apple orchards of Nirvana. Features beautiful exposed-stone masonry, high ceilings with solid pine rafters, local Himachali woven rugs, a private patio with Adirondack chairs, modern heated flooring, and organic shower rituals with locally-crafted essential oils.",
+    amenities: ["Plush Queen Bed", "Direct Garden Access", "Private Patio", "Heated Floors", "Organic Shower Essentials", "High-speed Wi-Fi", "Traditional Local Rugs", "Tea Station"],
+    view: "Immersive Rose Garden & Apple Orchard Views",
+    image: "/images/bonfire_evening_1782394660663.jpg",
+    isAvailable: true,
+    rating: 4.8,
+    bedType: "1 Premium Queen Bed",
+    images: ["/images/bonfire_evening_1782394660663.jpg", "/images/homestay_exterior_1782394626548.jpg"]
+  }
+];
+
+export const defaultGallery = [
+  {
+    id: "g1",
+    url: "/images/homestay_exterior_1782394626548.jpg",
+    category: "views",
+    caption: "Chalet under the evening glow",
+    description: "The exterior architecture blends natural cedar, local stone, and modern panoramic glass perfectly with Chamba's landscape."
+  },
+  {
+    id: "g2",
+    url: "/images/cedar_suite_interior_1782394643530.jpg",
+    category: "rooms",
+    caption: "Sunrise at the Cedar Suite",
+    description: "Watch the morning mist lift over the snow-covered pine peaks right from your warm bedding."
+  },
+  {
+    id: "g3",
+    url: "/images/bonfire_evening_1782394660663.jpg",
+    category: "bonfire",
+    caption: "Whispering nights under the stars",
+    description: "Gather around our artisan fire pit, exchange stories, and enjoy hot home-style meals with live acoustic tunes."
+  }
+];

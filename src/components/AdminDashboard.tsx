@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Room, Enquiry, GalleryItem } from "../types";
+import { defaultRooms, defaultGallery } from "../data";
 import { ShieldAlert, Trash2, Check, X, Edit, DollarSign, Calendar, Sliders, ChevronDown, Plus, LayoutGrid, Layers, RefreshCw, Star } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -19,9 +20,20 @@ export default function AdminDashboard() {
 
   // Fetch all state
   const fetchData = () => {
-    fetch("/api/enquiries").then(r => r.json()).then(setEnquiries);
-    fetch("/api/rooms").then(r => r.json()).then(setRooms);
-    fetch("/api/gallery").then(r => r.json()).then(setGallery);
+    fetch("/api/enquiries")
+      .then(r => r.ok ? r.json() : [])
+      .then(setEnquiries)
+      .catch(() => setEnquiries([]));
+
+    fetch("/api/rooms")
+      .then(r => r.ok ? r.json() : defaultRooms)
+      .then(setRooms)
+      .catch(() => setRooms(defaultRooms));
+
+    fetch("/api/gallery")
+      .then(r => r.ok ? r.json() : defaultGallery)
+      .then(setGallery)
+      .catch(() => setGallery(defaultGallery));
   };
 
   useEffect(() => {
