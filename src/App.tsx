@@ -292,7 +292,7 @@ function AppContent() {
           </section>
 
           {/* 5. Consistent Footers */}
-          <footer className="bg-brand-text text-white/90 pt-20 pb-10 border-t border-brand-border w-full">
+          <footer className="bg-brand-footer text-white/90 pt-20 pb-10 border-t border-brand-border w-full">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-white/10">
               
               <div className="space-y-4">
@@ -344,7 +344,7 @@ function AppContent() {
                 </p>
                 <Link
                   to="/contact"
-                  className="bg-brand-beige text-brand-text hover:bg-white text-xs uppercase tracking-widest font-bold px-5 py-2.5 rounded-lg transition-colors shadow-xs inline-block text-center"
+                  className="bg-brand-beige text-stone-950 hover:bg-white text-xs uppercase tracking-widest font-bold px-5 py-2.5 rounded-lg transition-colors shadow-xs inline-block text-center"
                 >
                   Reserve Now
                 </Link>

@@ -44,7 +44,7 @@ export default function Home() {
               loading="eager"
             />
           </picture>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/40 to-brand-text/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/15" />
         </div>
 
         {/* Floating Particles in Hero */}
@@ -71,12 +71,12 @@ export default function Home() {
             <div className="lg:col-span-7">
               <ScrollReveal direction="up" delay={0.15}>
                 <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2 text-brand-green bg-white/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-border/60 shadow-xs">
+                  <div className="inline-flex items-center gap-2 text-brand-green bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-border shadow-xs">
                     <Trees className="h-4 w-4" />
                     <span className="text-[10px] uppercase font-bold tracking-[0.25em]">Chamba, Himachal Pradesh</span>
                   </div>
                   
-                  <h1 className="font-editorial text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.95] text-brand-text">
+                  <h1 className="font-editorial text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.95] text-white">
                     NIRVANA <br />
                     <span className="text-3xl sm:text-4xl md:text-[44px] md:leading-[46px] font-sans tracking-wide block font-normal mt-4 text-brand-beige">by kunwar mahajan</span>
                   </h1>
@@ -88,7 +88,7 @@ export default function Home() {
             <div className="lg:col-span-5 lg:pl-4">
               <ScrollReveal direction="up" delay={0.3}>
                 <div className="space-y-6">
-                  <p className="text-sm sm:text-base text-brand-text/80 font-light leading-relaxed">
+                  <p className="text-sm sm:text-base text-white/90 font-light leading-relaxed">
                     Built with native Himalayan cedar and mountain stone, Nirvana offers a luxury refuge to breathe, wander pine forests, and star-gaze in extreme quiet.
                   </p>
 
@@ -102,21 +102,21 @@ export default function Home() {
                     </Link>
                     <Link
                       to="/rooms"
-                      className="border border-brand-text/35 text-brand-text hover:bg-white/60 bg-white/25 backdrop-blur-xs text-xs uppercase tracking-widest font-semibold py-4 px-8 rounded-full transition-all flex items-center justify-center cursor-pointer text-center"
+                      className="border border-white/30 text-white hover:bg-white/10 bg-white/5 backdrop-blur-xs text-xs uppercase tracking-widest font-semibold py-4 px-8 rounded-full transition-all flex items-center justify-center cursor-pointer text-center"
                     >
                       Explore Rooms
                     </Link>
                   </div>
 
                   {/* Elegant divider and small telemetry-free ambient meta information */}
-                  <div className="pt-5 border-t border-brand-border/40 grid grid-cols-2 gap-4">
+                  <div className="pt-5 border-t border-white/20 grid grid-cols-2 gap-4">
                     <div>
-                      <span className="text-[9px] uppercase tracking-wider text-brand-text-sec block">Altitude</span>
-                      <span className="font-mono text-xs font-semibold text-brand-text">996 m (3,268 ft)</span>
+                      <span className="text-[9px] uppercase tracking-wider text-white/60 block">Altitude</span>
+                      <span className="font-mono text-xs font-semibold text-white">996 m (3,268 ft)</span>
                     </div>
                     <div>
-                      <span className="text-[9px] uppercase tracking-wider text-brand-text-sec block">Atmosphere</span>
-                      <span className="font-mono text-xs font-semibold text-brand-text">Aromatic Pine & Mist</span>
+                      <span className="text-[9px] uppercase tracking-wider text-white/60 block">Atmosphere</span>
+                      <span className="font-mono text-xs font-semibold text-white">Aromatic Pine & Mist</span>
                     </div>
                   </div>
                 </div>
