@@ -160,10 +160,11 @@ export default function Experience() {
             <ScrollReveal direction="right" delay={0.15}>
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-video lg:aspect-[4/3] border border-brand-border shadow-sm">
                 <img
-                  src="/images/bonfire_evening_1782394660663.jpg"
+                  src="/images/bonfire_evening_1782394660663.webp"
                   alt="Organic authentic dining setting"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-border text-[9px] uppercase tracking-widest font-semibold text-brand-green shadow-xs">
                   Organic Culinary Ritual
@@ -223,10 +224,11 @@ export default function Experience() {
             <ScrollReveal direction="left" delay={0.1}>
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-brand-border shadow-xs bg-gray-100 hidden lg:block">
                 <img
-                  src="/images/cedar_suite_interior_1782394643530.jpg"
+                  src="/images/cedar_suite_interior_1782394643530.webp"
                   alt="Cultural integration design"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </ScrollReveal>

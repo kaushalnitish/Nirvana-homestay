@@ -46,11 +46,11 @@ const defaultRooms = [
     longDescription: "Built entirely of aromatic Himalayan cedar (Deodar) and natural slate stone. Features a private floating cedar wood balcony overlooking the Chamera valley mist. Equipped with an artisanal wood stove for chilly evenings, premium King size bed with organic cotton sheets, a designer copper bathtub, and dedicated high-speed fiber-optic workspace with artisanal espresso maker.",
     amenities: ["King Bed", "Private Deck", "Copper Tub", "Wood Fireplace", "High-speed Wi-Fi", "Espresso Maker", "Premium Linens", "Scenic Mountain View"],
     view: "Panoramic Snow-capped Himalayan Range & Pine Forest",
-    image: "/images/cedar_suite_interior_1782394643530.jpg",
+    image: "/images/cedar_suite_interior_1782394643530.webp",
     isAvailable: true,
     rating: 4.9,
     bedType: "1 Extra-Large King Bed",
-    images: ["/images/cedar_suite_interior_1782394643530.jpg", "/images/homestay_exterior_1782394626548.jpg"]
+    images: ["/images/cedar_suite_interior_1782394643530.webp", "/images/homestay_exterior_1782394626548.webp"]
   },
   {
     id: "mist-nest",
@@ -62,11 +62,11 @@ const defaultRooms = [
     longDescription: "Our most premium accommodation. Built high into the rafters of the chalet with dramatic sloping timber ceilings and double-height architectural glazing. Features an upper sleeping loft, a cozy lower lounge with an iron stove, a private wrap-around terrace, customized organic tea bar, and deep clay soaking tub. Perfect for families, couples seeking high-end isolation, or a premium long-term creative workcation.",
     amenities: ["Upper Loft Bed", "Wrap-around Deck", "Double-height Glass Wall", "Tea Sommelier Bar", "Deep Clay Soak Tub", "Workspace", "Marshall Bluetooth Speaker", "Private Fireplace"],
     view: "Sky-high Panoramic Views & Rising Morning Clouds",
-    image: "/images/homestay_exterior_1782394626548.jpg",
+    image: "/images/homestay_exterior_1782394626548.webp",
     isAvailable: true,
     rating: 5.0,
     bedType: "2 Queen-size Floating Beds",
-    images: ["/images/homestay_exterior_1782394626548.jpg", "/images/cedar_suite_interior_1782394643530.jpg"]
+    images: ["/images/homestay_exterior_1782394626548.webp", "/images/cedar_suite_interior_1782394643530.webp"]
   },
   {
     id: "pine-room",
@@ -78,32 +78,32 @@ const defaultRooms = [
     longDescription: "Designed for a serene, earth-grounded connection. Opens directly onto the lush private gardens and apple orchards of Nirvana. Features beautiful exposed-stone masonry, high ceilings with solid pine rafters, local Himachali woven rugs, a private patio with Adirondack chairs, modern heated flooring, and organic shower rituals with locally-crafted essential oils.",
     amenities: ["Plush Queen Bed", "Direct Garden Access", "Private Patio", "Heated Floors", "Organic Shower Essentials", "High-speed Wi-Fi", "Traditional Local Rugs", "Tea Station"],
     view: "Immersive Rose Garden & Apple Orchard Views",
-    image: "/images/bonfire_evening_1782394660663.jpg",
+    image: "/images/bonfire_evening_1782394660663.webp",
     isAvailable: true,
     rating: 4.8,
     bedType: "1 Premium Queen Bed",
-    images: ["/images/bonfire_evening_1782394660663.jpg", "/images/homestay_exterior_1782394626548.jpg"]
+    images: ["/images/bonfire_evening_1782394660663.webp", "/images/homestay_exterior_1782394626548.webp"]
   }
 ];
 
 const defaultGallery = [
   {
     id: "g1",
-    url: "/images/homestay_exterior_1782394626548.jpg",
+    url: "/images/homestay_exterior_1782394626548.webp",
     category: "views",
     caption: "Chalet under the evening glow",
     description: "The exterior architecture blends natural cedar, local stone, and modern panoramic glass perfectly with Chamba's landscape."
   },
   {
     id: "g2",
-    url: "/images/cedar_suite_interior_1782394643530.jpg",
+    url: "/images/cedar_suite_interior_1782394643530.webp",
     category: "rooms",
     caption: "Sunrise at the Cedar Suite",
     description: "Watch the morning mist lift over the snow-covered pine peaks right from your warm bedding."
   },
   {
     id: "g3",
-    url: "/images/bonfire_evening_1782394660663.jpg",
+    url: "/images/bonfire_evening_1782394660663.webp",
     category: "bonfire",
     caption: "Whispering nights under the stars",
     description: "Gather around our artisan fire pit, exchange stories, and enjoy hot home-style meals with live acoustic tunes."

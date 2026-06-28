@@ -34,10 +34,12 @@ export default function Home() {
         {/* Parallax Image Container */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/homestay_exterior_1782394626548.jpg"
+            src="/images/homestay_exterior_1782394626548.webp"
             alt="Nirvana Homestay exterior mountain landscape"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover scale-105 select-none"
+            fetchPriority="high"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/40 to-brand-text/25" />
         </div>
@@ -128,7 +130,7 @@ export default function Home() {
           <ScrollReveal direction="left" delay={0.1}>
             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[3/4] border border-brand-border shadow-sm">
               <img
-                src="/images/homestay_exterior_1782394626548.jpg"
+                src="/images/homestay_exterior_1782394626548.webp"
                 alt="Rustic modern deodar timber chalet design"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
