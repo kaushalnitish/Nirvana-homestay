@@ -38,7 +38,6 @@ export default function Home() {
             <img
               src="/images/homestay_exterior_1782394626548.jpg"
               alt="Nirvana Homestay exterior mountain landscape"
-              referrerPolicy="no-referrer"
               className="w-full h-full object-cover scale-105 select-none"
               fetchPriority="high"
               loading="eager"
@@ -137,7 +136,6 @@ export default function Home() {
                 <img
                   src="/images/homestay_exterior_1782394626548.jpg"
                   alt="Rustic modern deodar timber chalet design"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -226,7 +224,6 @@ export default function Home() {
                           <img
                             src={room.image}
                             alt={room.name}
-                            referrerPolicy="no-referrer"
                             className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
                             loading="lazy"
                           />
@@ -294,7 +291,6 @@ export default function Home() {
                     <img
                       src={exp.image}
                       alt={exp.title}
-                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 ease-out"
                       loading="lazy"
                     />
